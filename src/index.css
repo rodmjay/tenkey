@@ -1,0 +1,31 @@
+
+nav {
+  padding: 20px 0 20px 0;
+}
+
+#results, #formula{
+  text-align: right;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.jumbotron{
+  max-width: 500px;
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+
+h2{
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+
+}
