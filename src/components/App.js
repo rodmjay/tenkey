@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Hotkeys from 'react-hot-keys';
 
 class App extends Component {
 
@@ -84,6 +85,10 @@ class App extends Component {
     });
   }
 
+  onKeyDown(keyName, e, handle) {
+    console.log("test:onKeyDown", keyName);
+  }
+
   render() {
     return (
       <div className="container-fluid vertical-center">
@@ -131,7 +136,11 @@ class App extends Component {
 
           </div>
         </div>
-
+        <Hotkeys
+          keyName="1"
+          onKeyDown={this.onKeyDown.bind(this)}
+        >
+        </Hotkeys>
       </div>
 
     )
