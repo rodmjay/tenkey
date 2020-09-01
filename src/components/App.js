@@ -114,22 +114,22 @@ class App extends Component {
 
               </div>
               <div className="btn-group btn-group-lg" role="group">
-                <button name="4" className="btn btn-lg btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>4</button>
-                <button name="5" className="btn btn-lg btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>5</button>
-                <button name="6" className="btn btn-lg btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>6</button>
+                <button name="4" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>4</button>
+                <button name="5" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>5</button>
+                <button name="6" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>6</button>
                 <button name="+" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target.name)}>+</button>
 
               </div>
               <div className="btn-group btn-group-lg" role="group">
-                <button name="1" className="btn btn-lg btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>1</button>
-                <button name="2" className="btn btn-lg btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>2</button>
-                <button name="3" className="btn btn-lg btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>3</button>
+                <button name="1" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>1</button>
+                <button name="2" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>2</button>
+                <button name="3" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>3</button>
                 <button name="-" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target.name)}>-</button>
 
               </div>
               <div className="btn-group btn-group-lg" role="group">
-                <button name="0" className="btn btn-lg btn-secondary col-6 form-control" onClick={e => this.onClick(e.target.name)}>0</button>
-                <button name="." className="btn btn-lg btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>.</button>
+                <button name="0" className="btn btn-secondary col-6 form-control" onClick={e => this.onClick(e.target.name)}>0</button>
+                <button name="." className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>.</button>
                 <button name="=" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target.name)}>=</button>
               </div>
             </div>
