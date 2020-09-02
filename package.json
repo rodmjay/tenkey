@@ -62,5 +62,9 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-hot-keys": "^2.6.0",
+    "react-hotkeys": "^2.0.0",
+    "react-hotkeys-hook": "^2.3.0"
+  }
 }
