@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
-import Hotkeys from 'react-hot-keys';
+import * as React from "react";
+import { hot } from "react-hot-loader";
 
-class App extends Component {
+const reactLogo = require("./../assets/img/react_logo.svg");
+import "./../assets/scss/App.scss";
 
-  constructor() {
-    super();
+type CalculatorState = {
+  formula: string,
+  result: string
+}
+
+class App extends React.Component<{}, CalculatorState> {
+
+  constructor(props) {
+    super(props);
     this.state = {
       result: "",
       formula: ""
-    }
+    };
   }
 
   onClick = button => {
@@ -80,9 +88,7 @@ class App extends Component {
   }
 
   onInputchange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+
   }
 
   onKeyDown(keyName, e, handle) {
@@ -107,40 +113,35 @@ class App extends Component {
             </div>
             <div className="btn-group-vertical col-12" role="group">
               <div className="btn-group btn-group-lg" role="group">
-                <button name="7" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>7</button>
-                <button name="8" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>8</button>
-                <button name="9" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>9</button>
-                <button name="C" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target.name)}>C</button>
+                <button name="7" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target['name'])}>7</button>
+                <button name="8" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target['name'])}>8</button>
+                <button name="9" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target['name'])}>9</button>
+                <button name="C" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target['name'])}>C</button>
 
               </div>
               <div className="btn-group btn-group-lg" role="group">
-                <button name="4" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>4</button>
-                <button name="5" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>5</button>
-                <button name="6" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target.name)}>6</button>
-                <button name="+" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target.name)}>+</button>
+                <button name="4" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target["name"])}>4</button>
+                <button name="5" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target["name"])}>5</button>
+                <button name="6" className="btn btn-secondary  col-3 form-control" onClick={e => this.onClick(e.target["name"])}>6</button>
+                <button name="+" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target["name"])}>+</button>
 
               </div>
               <div className="btn-group btn-group-lg" role="group">
-                <button name="1" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>1</button>
-                <button name="2" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>2</button>
-                <button name="3" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>3</button>
-                <button name="-" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target.name)}>-</button>
+                <button name="1" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target["name"])}>1</button>
+                <button name="2" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target["name"])}>2</button>
+                <button name="3" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target["name"])}>3</button>
+                <button name="-" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target["name"])}>-</button>
 
               </div>
               <div className="btn-group btn-group-lg" role="group">
-                <button name="0" className="btn btn-secondary col-6 form-control" onClick={e => this.onClick(e.target.name)}>0</button>
-                <button name="." className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target.name)}>.</button>
-                <button name="=" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target.name)}>=</button>
+                <button name="0" className="btn btn-secondary col-6 form-control" onClick={e => this.onClick(e.target["name"])}>0</button>
+                <button name="." className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target["name"])}>.</button>
+                <button name="=" className="btn btn-primary col-3 form-control" onClick={e => this.onClick(e.target["name"])}>=</button>
               </div>
             </div>
 
           </div>
         </div>
-        <Hotkeys
-          keyName="1"
-          onKeyDown={this.onKeyDown.bind(this)}
-        >
-        </Hotkeys>
       </div>
 
     )
@@ -149,4 +150,6 @@ class App extends Component {
 
 }
 
-export default App;
+declare let module: Record<string, unknown>;
+
+export default hot(module)(App);
