@@ -63,8 +63,12 @@ class App extends React.Component<{}, CalculatorState> {
         if(this.state.formula.charAt(this.state.formula.length - 1) == "+"){
           button = '';
         }
-      }else{
+      }
 
+      if(this.state.formula.length && button === '.'){
+        if(this.state.formula.charAt(this.state.formula.length - 1) == "."){
+          button = '';
+        }
       }
 
       this.setState({
