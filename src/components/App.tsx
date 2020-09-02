@@ -23,7 +23,7 @@ class App extends React.Component<{}, CalculatorState> {
     this.keyMap = {
       Digit: ['1','2','3','4','5','6','7','8','9','0','.','shift+=','shift+_'],
       Clear: ['c'],
-      Equals: ['='],
+      Equals: ['=','enter'],
     };
 
     this.handlers = {
@@ -36,7 +36,7 @@ class App extends React.Component<{}, CalculatorState> {
         this.clear();
       },
       Equals: () => {
-        //console.log('=');
+        console.log('=');
         this.calculate();
       }
     };
@@ -55,10 +55,24 @@ class App extends React.Component<{}, CalculatorState> {
 
     else {
 
+
+      if(this.state.formula.length && (button === '+' || button === '-')){
+        if(this.state.formula.charAt(this.state.formula.length - 1) == "-"){
+          button = '';
+        }
+        if(this.state.formula.charAt(this.state.formula.length - 1) == "+"){
+          button = '';
+        }
+      }else{
+
+      }
+
       this.setState({
         result: this.state.result,
         formula: this.state.formula + button
       })
+
+
     }
 
   }
@@ -67,6 +81,7 @@ class App extends React.Component<{}, CalculatorState> {
 
     // this could be done with regex to make it simpler
     if (formula.length > 0) {
+
       while (formula.includes("++")) {
         formula = formula.replace("++", "+");
       }
@@ -100,7 +115,7 @@ class App extends React.Component<{}, CalculatorState> {
 
     this.setState({
       formula: checkFormula,
-      result: (eval(checkFormula) || "")
+      result: (eval(checkFormula) || "ERR")
     })
   }
 
@@ -124,16 +139,16 @@ class App extends React.Component<{}, CalculatorState> {
           <div className="container">
             <div className="jumbotron">
               <h2 className="col-12">Calculator Assignment</h2>
-              <div className="input-group col-12">
-                <input className="form-control"
-                  id="formula" type="text"
-                  value={this.state.formula} onChange={this.onInputchange} />
+              <div className="col-12">
+                <h4>
+                  {this.state.formula}
+                </h4>
+                <h3>
+                  {this.state.result}
+                </h3>
+
               </div>
-              <div className="input-group col-12">
-                <input className="form-control pull-right input-sm"
-                  id="results" type="text"
-                  value={this.state.result} onChange={this.onInputchange} />
-              </div>
+
               <div className="btn-group-vertical col-12" role="group">
                 <div className="btn-group btn-group-lg" role="group">
                   <button name="7" className="btn btn-secondary col-3 form-control" onClick={e => this.onClick(e.target['name'])}>7</button>
